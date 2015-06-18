@@ -3,6 +3,9 @@ package fr.free.neomcfly.test.commons.pool;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import fr.free.neomcfly.test.commons.pool.configuration.ConfigurationContext;
+import fr.free.neomcfly.test.commons.pool.configuration.ConfigurationPool;
+
 public class Main {
 
     @Autowired
@@ -13,11 +16,14 @@ public class Main {
         AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
 
         ctx.register(ConfigurationContext.class);
+        ctx.register(ConfigurationPool.class);
         ctx.refresh();
 
         Service service = ctx.getBean(Service.class);
 
         service.test();
+
+        ctx.close();
 
     }
 
