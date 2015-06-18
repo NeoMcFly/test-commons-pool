@@ -15,7 +15,6 @@ import fr.free.neomcfly.test.commons.pool.impl.DefaultConnection;
 public class ConfigurationPool {
 
     @Bean(name = "pooledConnection")
-    @Scope("session")
     public Connection getPooledConnection(BeanFactory beanFactory) {
 
         ConnectionPoolTargetSource targetSource = new ConnectionPoolTargetSource();
