@@ -1,4 +1,4 @@
-package fr.free.neomcfly.test.commons.pool;
+package neomcfly.test.commons.pool;
 
 public interface Connection {
 

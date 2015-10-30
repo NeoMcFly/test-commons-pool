@@ -1,10 +1,10 @@
-package fr.free.neomcfly.test.commons.pool;
+package neomcfly.test.commons.pool;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import fr.free.neomcfly.test.commons.pool.configuration.ConfigurationContext;
-import fr.free.neomcfly.test.commons.pool.configuration.ConfigurationPool;
+import neomcfly.test.commons.pool.configuration.ConfigurationContext;
+import neomcfly.test.commons.pool.configuration.ConfigurationPool;
 
 public class Main {
 

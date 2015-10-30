@@ -1,4 +1,4 @@
-package fr.free.neomcfly.test.commons.pool.configuration;
+package neomcfly.test.commons.pool.configuration;
 
 import org.springframework.aop.framework.ProxyFactoryBean;
 import org.springframework.beans.factory.BeanFactory;
@@ -7,9 +7,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 
-import fr.free.neomcfly.test.commons.pool.Connection;
-import fr.free.neomcfly.test.commons.pool.impl.ConnectionPoolTargetSource;
-import fr.free.neomcfly.test.commons.pool.impl.DefaultConnection;
+import neomcfly.test.commons.pool.Connection;
+import neomcfly.test.commons.pool.impl.ConnectionPoolTargetSource;
+import neomcfly.test.commons.pool.impl.DefaultConnection;
 
 @Configuration
 public class ConfigurationPool {

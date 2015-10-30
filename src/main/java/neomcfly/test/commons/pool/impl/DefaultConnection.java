@@ -1,7 +1,7 @@
-package fr.free.neomcfly.test.commons.pool.impl;
+package neomcfly.test.commons.pool.impl;
 
 import lombok.extern.slf4j.Slf4j;
-import fr.free.neomcfly.test.commons.pool.Connection;
+import neomcfly.test.commons.pool.Connection;
 
 @Slf4j
 public class DefaultConnection implements Connection {
