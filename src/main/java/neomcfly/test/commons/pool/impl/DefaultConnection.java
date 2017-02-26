@@ -12,8 +12,7 @@ public class DefaultConnection implements Connection {
         try {
             Thread.sleep(20000);
         } catch (InterruptedException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            log.error(e.getMessage(), e);
         }
 
         log.info("< Executing command {}", command);

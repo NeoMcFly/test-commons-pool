@@ -13,83 +13,83 @@ import lombok.extern.slf4j.Slf4j;
 @Component
 public class Service {
 
-	public class WorkerThread implements Runnable {
+    public class WorkerThread implements Runnable {
 
-		private String userId;
+        private String userId;
 
-		public WorkerThread(String userId) {
-			this.userId = userId;
-		}
+        public WorkerThread(String userId) {
+            this.userId = userId;
+        }
 
-		public void run() {
+        public void run() {
 
-			log.info("user begin: " + userId);
+            log.info("user begin: " + userId);
 
-			connection.execute("Command: " + userId);
+            connection.execute("Command: " + userId);
 
-			log.info("user end: " + userId);
+            log.info("user end: " + userId);
 
-		}
-	}
+        }
+    }
 
-	@Autowired
-	@Qualifier("pooledConnection")
-	private Connection connection;
+    @Autowired
+    @Qualifier("pooledConnection")
+    private Connection connection;
 
-	public void test() {
+    public void test() {
 
-		ExecutorService executor = Executors.newFixedThreadPool(100); // illimité
-		for (int i = 0; i < 10; i++) {
+        ExecutorService executor = Executors.newFixedThreadPool(100); // illimité
+        for (int i = 0; i < 10; i++) {
 
-			Runnable worker = new WorkerThread("" + i);
+            Runnable worker = new WorkerThread("" + i);
 
-			executor.execute(worker);
+            executor.execute(worker);
 
-			try {
-				Thread.sleep(500);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                log.error(e.getMessage(), e);
+            }
 
-		}
+        }
 
-		executor.shutdown();
+        executor.shutdown();
 
-		while (!executor.isTerminated()) {
-			try {
-				Thread.sleep(3000);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-		}
+        while (!executor.isTerminated()) {
+            try {
+                Thread.sleep(3000);
+            } catch (InterruptedException e) {
+                log.error(e.getMessage(), e);
+            }
+        }
 
-		log.info("> Wait Second passage");
+        log.info("> Wait Second passage");
 
-		try {
-			Thread.sleep(120000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		log.info("< Wait Second passage");
+        try {
+            Thread.sleep(120000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        log.info("< Wait Second passage");
 
-		executor = Executors.newFixedThreadPool(100); // illimité
-		for (int i = 0; i < 10; i++) {
+        executor = Executors.newFixedThreadPool(100); // illimité
+        for (int i = 0; i < 10; i++) {
 
-			Runnable worker = new WorkerThread("" + i);
+            Runnable worker = new WorkerThread("" + i);
 
-			executor.execute(worker);
+            executor.execute(worker);
 
-		}
+        }
 
-		executor.shutdown();
+        executor.shutdown();
 
-		while (!executor.isTerminated()) {
-			try {
-				Thread.sleep(3000);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-		}
+        while (!executor.isTerminated()) {
+            try {
+                Thread.sleep(3000);
+            } catch (InterruptedException e) {
+                log.error(e.getMessage(), e);
+            }
+        }
 
-	}
+    }
 }
